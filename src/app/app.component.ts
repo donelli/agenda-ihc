@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faListUl, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   isCollapsed = true;
+  faListUl = faListUl;
+  faCalendarAlt = faCalendarAlt;
 
 }

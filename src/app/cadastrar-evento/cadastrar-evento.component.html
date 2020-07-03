@@ -1,0 +1,44 @@
+
+<div class="container-fluid mt-2">
+  
+  <div class="p-3 py-4 border rounded">
+    
+    <div class="form-group">
+      <label for="inputTarefa">Título do evento</label>
+      <input type="email" class="form-control" id="inputTarefa" placeholder="Digite o título deste evento..." [(ngModel)]="titulo" (ngModelChange)="verificaOkCadastro()">
+    </div>
+    
+    <div class="row form-group">
+      <div class="col-6">
+        <label for="inputDataIni">Data inicial</label>
+       <input type="date" class="form-control" id="inputDataIni" [(ngModel)]="dataInicial" (ngModelChange)="verificaOkCadastro()">
+      </div>
+      <div class="col-6">
+        <label for="inputHoraIni">Hora inicial</label>
+        <input type="time" class="form-control" id="inputHoraIni" [(ngModel)]="horaInicial" (ngModelChange)="verificaOkCadastro()">
+      </div>
+    </div>
+    
+    <div class="row form-group">
+      <div class="col-6">
+        <label for="inputDataFim">Data inicial</label>
+       <input type="date" class="form-control" id="inputDataFim" [(ngModel)]="dataFinal" (ngModelChange)="verificaOkCadastro()">
+      </div>
+      <div class="col-6">
+        <label for="inputHoraFim">Hora final</label>
+        <input type="time" class="form-control" id="inputHoraFim" [(ngModel)]="horaFinal" (ngModelChange)="verificaOkCadastro()">
+      </div>
+    </div>
+    
+    <div class="text-center">
+      <button class="btn btn-success px-5" (click)="cadastrar()" [disabled]="!cadastroOK">
+        Cadastrar
+      </button>
+      <button class="btn btn-danger px-5 ml-2" routerLink="/agenda">
+        Cancelar
+      </button>
+    </div>
+    
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+
+<div class="container-fluid mt-2">
+  
+  <div class="p-3 py-4 border rounded">
+    <div class="form-group">
+      <label for="inputTarefa">Tarefa</label>
+      <input type="email" class="form-control" id="inputTarefa" placeholder="Digite o que você tem a fazer..." [(ngModel)]="descricaoTarefa" (ngModelChange)="verificaOkCadastro()">
+    </div>
+    <div class="form-group">
+      <label for="inputData">Data final</label>
+      <input type="date" class="form-control" id="inputData" [(ngModel)]="dataFinal" (ngModelChange)="verificaOkCadastro()">
+    </div>
+    <div class="form-group">
+      <label for="inputHora">Hora final</label>
+      <input type="time" class="form-control" id="inputHora" [(ngModel)]="horaFinal" (ngModelChange)="verificaOkCadastro()">
+    </div>
+    <div class="text-center">
+      <button class="btn btn-success px-5" (click)="cadastrar()" [disabled]="!cadastroOK">
+        Agendar
+      </button>
+      <button class="btn btn-danger px-5 ml-2" routerLink="/tarefas">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+</div>

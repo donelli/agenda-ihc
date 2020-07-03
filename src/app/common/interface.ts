@@ -1,26 +1,31 @@
 
 export interface Tarefa {
-  id: number;
+  id?: number;
   titulo: string;
-  data: Date;
+  data: string;
+  hora: string;
   concluida: boolean;
 }
 
-export interface Compromisso {
-  id: number;
+export interface Evento {
+  id?: number;
   titulo: string;
-  descricao: string;
-  inicio: Date;
-  final: Date;
+  dataInicial: string;
+  horaInicial: string;
+  dataFinal: string;
+  horaFinal: string;
 }
 
 export interface Dia {
-  compromissos: Compromisso[];
+  compromissos: Evento[];
 }
 
 export interface Mes {
-  mes: string;
-  ano: string;
+  mes: number;
+  ano: number;
   nomeMes: string;
   dias: Dia[];
+  diaDaSemanaInicial: number;
+  ultimoDiaDoMes: number;
+  mesAtual: boolean;
 }

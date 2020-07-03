@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-primary">
   
   <a class="navbar-brand" href="#">Agenda e Lista de Tarefas</a>
   <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
@@ -9,10 +9,16 @@
   <div class="collapse navbar-collapse" [collapse]="isCollapsed" [isAnimated]="true">
     <ul class="navbar-nav mr-auto ml-md-4">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/agenda" routerLinkActive="active">Agenda</a>
+        <a class="nav-link" routerLink="/agenda" routerLinkActive="active">
+          <fa-icon [icon]="faCalendarAlt" class="mr-1"></fa-icon>
+          Agenda
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/tarefas" routerLinkActive="active" >Lista de Tarefas</a>
+        <a class="nav-link" routerLink="/tarefas" routerLinkActive="active">
+          <fa-icon [icon]="faListUl" class="mr-1"></fa-icon>
+          Lista de Tarefas
+        </a>
       </li>
     </ul>
   </div>

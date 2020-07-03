@@ -1,1 +1,76 @@
-<p>tarefas works!</p>
+
+<div bsModal #modalExcluir="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Confirmar exclusão</h4>
+        <button type="button" class="close pull-right" (click)="modalExcluir.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Confirma a exclusão desta tarefa?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" (click)="excluiTarefa(); modalExcluir.hide()">
+          Sim
+        </button>
+        <button class="btn btn-danger" (click)="modalExcluir.hide()">
+          Não
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-2">
+  
+  <div class="text-center mt-4" *ngIf="tarefas.length == 0 && !carregando">
+    Ainda não há tarefas cadastradas
+  </div>
+  
+  <div class="text-center mt-4 pt-4" *ngIf="carregando">
+    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  
+  <table class="table table-sm table-borderless">
+    <tbody class="border-0" *ngFor="let data of datas">
+      
+      <tr>
+        <td class="border-bottom h4 p-2 pt-3" colspan="4">
+          {{ formataData(data, false) }}
+        </td>
+      </tr>
+      
+      <tr class="border-bottom" *ngFor="let tarefa of getTarefas(data)">
+        <td class="py-2">
+          
+          <div class="d-inline-block" style="cursor: pointer;">
+            <fa-icon [icon]="faCheckCircle" class="text-success" *ngIf="tarefa.concluida" (click)="marcaComoConcluida(tarefa, false)" title="Marcar tarefa como pendente"></fa-icon>
+            <fa-icon [icon]="faCircle" class="text-danger" *ngIf="!tarefa.concluida" (click)="marcaComoConcluida(tarefa, true)" title="Marcar tarefa como concluida"></fa-icon>
+          </div>
+          
+          {{ tarefa.titulo }}
+        </td>
+        <td class="py-2">{{ tarefa.hora }}</td>
+        <td class="py-2">{{ formataData(tarefa.data, true) }}</td>
+        <td class="py-2 text-right">
+          <button class="btn btn-sm btn-danger" title="Excluir tarefa" (click)="setIdExcluir(tarefa); modalExcluir.show()">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <div class="text-center mt-4" *ngIf="!carregando">
+    <button class="btn btn-primary" routerLink="/cadastrar-tarefa">
+      + Adicionar tarefa
+    </button>
+  </div>
+  
+</div>
