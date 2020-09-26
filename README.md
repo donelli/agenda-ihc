@@ -1,4 +1,4 @@
-## Agenda - Interface Humano Computador
+# Agenda - Interface Humano Computador
 
 Site desenvolvido como projeto final da disciplina de Interface Humano Computador da UCS em 2020-02]
 
